@@ -22,6 +22,7 @@ We then identified that missing data was denoted by `-` and replaced these value
 Additionally, we also converted numeric columns to their respective data types. These columns included `W%`, `KDA`,  and `KP`. After these assessments, we dropped the rows with positions that were not relevant to our question, keeping only the rows with positions of Top or Support.
 
 ### Head of our cleaned DataFrame
+
 | Pos     |   W% |   KDA |   KP |
 |:--------|-----:|------:|-----:|
 | Top     |   55 |   2.8 | 55.5 |

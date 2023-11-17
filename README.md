@@ -35,17 +35,17 @@ Additionally, we also converted numeric columns to their respective data types. 
 
 ### Univariate Analysis
 
-<iframe src="assets/kda-ratio.html" width=850 height=600 frameBorder=0></iframe>
+<iframe src="assets/kda-ratio.html" width=700 height=600 frameBorder=0></iframe>
 
 This is the distribution of KDA ratios for the cleaned dataset. The plotted distribution is skewed to the right due to outliers, showing that most KDA ratios fall between 0-5.
 
 ### Biveriate Analysis
 
-<iframe src="assets/position-vs-kda-ratio.html" width=850 height=600 frameBorder=0></iframe>
+<iframe src="assets/position-vs-kda-ratio.html" width=700 height=600 frameBorder=0></iframe>
 
 This histogram displays the distribution of KDA by position. By doing so, we can see that although both have a similar shape, the KDA for those with the position of “Support” had higher ratios more so than “Tops”.
 
-<iframe src="assets/win-percentage-kda-ratio.html" width=850 height=600 frameBorder=0></iframe>
+<iframe src="assets/win-percentage-kda-ratio.html" width=700 height=600 frameBorder=0></iframe>
 
 The scatterplot below displays a positive relationship between `W%` and `KDA`. This confirms that `KDA` can be used as a measure of success in future testing. 
 

@@ -1,5 +1,4 @@
 # League of Legends Positions Analysis
-A project for DSC80 at UCSD in which we clean, perform EDA, assess missingness, and conduct a hypothesis test with 2022 League of Legends data.
 
 ## Introduction
 In this project, we explore the importance of positions within League of Legends as it relates to success in the game. More formally, our question is "Which role impacts the success of the team more: Top or Support?". In League of Legends, players want to advance to higher ranks and know which position impacts their performance the most. For some players, it may impact the direction of their professional careers as different positions require different skills. By investigating this question, we can determine if certain positions, Top or Support, increase the success of a player. 
@@ -68,7 +67,23 @@ We do not believe any column in our cleaned dataset is Not Missing at Random (NM
 ### Missingness Dependency
 **Assessing the Missingness of  `Pos` on `Champion`**
 
+We want to assess if the missingness of the column `Pos` is dependent on the column `Champion`. If the `Pos` column is dependent on `Champion` then it would be Missing at Random(MAR) else we would conclude that it is Completely Missing at Random(MCAR). 
+
+To evaluate this dependency, we conducted a permutation test with the following pair of  hypotheses:
+
+**H<sub>0</sub>**: The distribution of `Champion` when `Position` is missing is the **same** as the distribution of `Champion` when `Pos` is not missing.
+
+**H<sub>1</sub>**: The distribution of `Champion` when `Position` is missing is **not the same** as the distribution of `Champion` when `Pos` is not missing.
+
+We chose to use the Total Variation Distance (TVD) as the test statistic because our columns contain categorical data. The observed test statistic was calculated as the following: 
+$$t = 0.386$$ 
+Along with the empirical distribution of the TVD: 
+
 <iframe src="assets/champ-pos-tvd.html" width=700 height=600 frameBorder=0></iframe>
+
+After generating 100,000 simulations the resulting p-value was:
+$$ \text{p-value} = 0.770$$
+Thus, at a significance level of 0.05 we fail to reject the null hypothesis and conclude that the missingness of the column `Pos` is not dependent on the column `Champion`. As such, we can say that `Pos` is MCAR  and not MAR in this case. 
 
 **Assessing the Missingness of  `Pos` on `P%`**
 

@@ -39,6 +39,7 @@ Additionally, we also converted numeric columns to their respective data types. 
 
 This is the distribution of KDA ratios for the cleaned dataset. The plotted distribution is skewed to the right due to outliers, showing that most KDA ratios fall between 0-5.
 
+
 ### Biveriate Analysis
 
 <iframe src="assets/position-vs-kda-ratio.html" width=700 height=600 frameBorder=0></iframe>
@@ -49,6 +50,7 @@ This histogram displays the distribution of KDA by position. By doing so, we can
 
 The scatterplot below displays a positive relationship between `W%` and `KDA`. This confirms that `KDA` can be used as a measure of success in future testing. 
 
+
 ### Interesting Aggregates
 
 | Pos     |      W% |     KDA |      KP |
@@ -57,3 +59,17 @@ The scatterplot below displays a positive relationship between `W%` and `KDA`. T
 | Top     | 40.2143 | 2.64405 | 53.4548 |
 
 We grouped our dataset by position to determine the means of `W%`, `KDA`, and `KP` for “Support” and “Top” individually. Looking at our grouped table, we can see that the `W%`, `KDA`, and `KP` were all higher on average for the “Support” position than for the “Top” position.
+
+## Assessment of Missingness 
+
+### NMAR Analysis
+We do not believe any column in our cleaned dataset is Not Missing at Random (NMAR). Rather than NMAR, we believe that the columns that are missing are Missing by Design(MD). This is due to the fact that we can infer the missingness of other columns from values of  the `P%` column. As mentioned previously in details of our data cleaning, all the missing values in columns could be traced back to the same value in  `P%` , where all values were 0%. Therefore, missingness in the dataset can be described as MAR rather than NMAR. 
+
+### Missingness Dependency
+**Assessing the Missingness of  `Pos` on `Champion`**
+
+<iframe src="assets/champ-pos-tvd.html" width=700 height=600 frameBorder=0></iframe>
+
+**Assessing the Missingness of  `Pos` on `P%`**
+
+<iframe src="assets/p-by-missingness-of-position.html" width=700 height=600 frameBorder=0></iframe>

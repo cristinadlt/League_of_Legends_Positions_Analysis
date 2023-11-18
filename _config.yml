@@ -3,5 +3,3 @@ plugins:
 - jekyll-remote-theme # add this line to the plugins list if you already have one
 
 title: [LOL Analysis]
-description: [A project by Cristina De La Torre and Kathleen Nguyen for DSC80 at UCSD in which we clean, perform EDA, 
-assess missingness, and conduct a hypothesis test with 2022 League of Legends data.]

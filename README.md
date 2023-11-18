@@ -47,7 +47,7 @@ This histogram displays the distribution of KDA by position. By doing so, we can
 
 <iframe src="assets/win-percentage-kda-ratio.html" width=700 height=600 frameBorder=0></iframe>
 
-The scatterplot below displays a positive relationship between `W%` and `KDA`. This confirms that `KDA` can be used as a measure of success in future testing. 
+The scatterplot above displays a positive relationship between `W%` and `KDA`. This confirms that `KDA` can be used as a measure of success in future testing. 
 
 
 ### Interesting Aggregates
@@ -89,7 +89,7 @@ After generating 100,000 simulations the resulting p-value was:
 
 Thus, at a significance level of 0.05 we fail to reject the null hypothesis and conclude that the missingness of the column `Pos` is not dependent on the column `Champion`. As such, we can say that `Pos` is MCAR  and not MAR in this case. 
 
-**Assessing the Missingness of  `Pos` on `P%`**
+**Assessing the Missingness of `Pos` on `P%`**
 
 We also want to assess if the missingness of the column `Pos` is dependent on the column `P%`. If the `Pos` column is dependent on `P%` then we would conclude that it is MAR and MCAR otherwise. 
 
@@ -108,3 +108,28 @@ After conducting our test the following is the resulting p-value:
 <p style="text-align: center;">p-value = 1.92*10<sup>-22</sup></p>
 
 Thus, at a significance level of 0.05 we reject the null hypothesis and conclude that the missingness of the column `Pos` is dependent on the column `P%`. As such, we can say that in this case `Pos` is MAR  and not MCAR. 
+
+## Hypothesis Testing
+
+**Question:** Which role impacts the success of the team more: Top or Support?
+
+After analyzing the distributions of the Support and Top roles within each column in the previous EDA section, we can conclude that the feature that most quantifies a team's success on an individual basis is `KDA`. `KDA` is a measure of a champion's performance and is calculated as the following: 
+
+$$\frac{\text{Kills} + \text{Assists}}{\text{Deaths}}$$
+
+This measure quantifies the champion's own individual performance while other columns like `W%` measure overall team results. Due to this, `KDA` would be the best measure to come to a conclusion about our posed question.
+
+To analyze this question we will be performing a one sided permutation test at a **significance level of 0.05** as we would like to understand if there is an underlying significant difference between these two positions. The hypotheses for this test are described below:  
+
+**H<sub>0</sub>**: The `KDA` for  “Support” and “Top” come from the same distribution. The observed differences in our samples are due to random chance alone.
+
+**H<sub>1</sub>**: The distribution of  `KDA` for “Support” is higher than “Top”, on average. The observed differences in our samples can not be due to random chance alone.
+
+To perform this test, we chose to use the difference in means as the test statistic as the distributions to assess are numerical. Therefore, we utilize difference in means as it can quantify the differences in our distributions. 
+
+**Test Stat:** Mean of `KDA` for Top - Mean of `KDA` for Support 
+
+After generating 100,000 simulations the resulting p-value was:
+<p style="text-align: center;">p-value = 0.0001</p>
+
+Thus, at a significance level of 0.05, we reject the null hypothesis that the two positions come from the same distribution. It is highly likely that the observed differences in our samples can not be due to random chance alone and that the distribution of  `KDA` for “Support” may be higher than “Top”.

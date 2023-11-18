@@ -76,15 +76,35 @@ To evaluate this dependency, we conducted a permutation test with the following 
 **H<sub>1</sub>**: The distribution of `Champion` when `Position` is missing is **not the same** as the distribution of `Champion` when `Pos` is not missing.
 
 We chose to use the Total Variation Distance (TVD) as the test statistic because our columns contain categorical data. The observed test statistic was calculated as the following: 
-$$t = 0.386$$ 
+
+<p style="text-align: center;">t = 0.386</p>
+
 Along with the empirical distribution of the TVD: 
 
 <iframe src="assets/champ-pos-tvd.html" width=700 height=600 frameBorder=0></iframe>
 
 After generating 100,000 simulations the resulting p-value was:
-$$ \text{p-value} = 0.770$$
+
+<p style="text-align: center;">p-value = 0.770</p>
+
 Thus, at a significance level of 0.05 we fail to reject the null hypothesis and conclude that the missingness of the column `Pos` is not dependent on the column `Champion`. As such, we can say that `Pos` is MCAR  and not MAR in this case. 
 
 **Assessing the Missingness of  `Pos` on `P%`**
 
+We also want to assess if the missingness of the column `Pos` is dependent on the column `P%`. If the `Pos` column is dependent on `P%` then we would conclude that it is MAR and MCAR otherwise. 
+
+To assess this, we conducted a permutation kolmogorov-smirnov test with the pair of  hypotheses below:
+
+**H<sub>0</sub>**: The distribution of `P%` when `Position` is missing is the **same** as the distribution of `P%` when `Pos` is not missing.
+
+**H<sub>1</sub>**: The distribution of `P%` when `Position` is missing is  **not the same** as the distribution of `P%` when `Pos` is not missing.
+
+We chose to use the k-s test statistic to carry out this evaluation as the distributions of the columns are both centered closely around each other but their shapes may still be different. The distributions of the columns are displayed below: 
+
 <iframe src="assets/p-by-missingness-of-position.html" width=700 height=600 frameBorder=0></iframe>
+
+After conducting our test the following is the resulting p-value:
+
+<p style="text-align: center;">p-value = 1.92*10<sup>-22</sup></p>
+
+Thus, at a significance level of 0.05 we reject the null hypothesis and conclude that the missingness of the column `Pos` is dependent on the column `P%`. As such, we can say that in this case `Pos` is MAR  and not MCAR. 

@@ -106,7 +106,7 @@ We chose to use the k-s test statistic to carry out this evaluation as the distr
 
 After conducting our test the following is the resulting p-value:
 
-<p style="text-align: center;">p-value = 1.92 $\times$ 10<sup>-22</sup></p>
+<p style="text-align: center;">p-value = 1.92 x 10<sup>-22</sup></p>
 
 Thus, at a significance level of 0.05 we reject the null hypothesis and conclude that the missingness of the column `Pos` is dependent on the column `P%`. As such, we can say that in this case `Pos` is MAR  and not MCAR. 
 
@@ -116,7 +116,7 @@ Thus, at a significance level of 0.05 we reject the null hypothesis and conclude
 
 After analyzing the distributions of the Support and Top roles within each column in the previous EDA section, we can conclude that the feature that most quantifies a team's success on an individual basis is `KDA`. `KDA` is a measure of a champion's performance and is calculated as the following: 
 
-<p style="text-align: center;">$\frac{\text{Kills + Assists}}{\text{Deaths}}$</p>
+<p style="text-align: center;">(Kills + Assists)/Deaths</p>
 
 This measure quantifies the champion's own individual performance while other columns like `W%` measure overall team results. Due to this, `KDA` would be the best measure to come to a conclusion about our posed question.
 

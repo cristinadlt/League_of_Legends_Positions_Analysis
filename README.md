@@ -1,4 +1,5 @@
 # League of Legends Positions Analysis
+by Kathleen Nguyen and Cristina De La Torre
 
 ## Introduction
 In this project, we explore the importance of positions within League of Legends as it relates to success in the game. More formally, our question is "Which role impacts the success of the team more: Top or Support?". In League of Legends, players want to advance to higher ranks and know which position impacts their performance the most. For some players, it may impact the direction of their professional careers as different positions require different skills. By investigating this question, we can determine if certain positions, Top or Support, increase the success of a player. 
@@ -105,7 +106,7 @@ We chose to use the k-s test statistic to carry out this evaluation as the distr
 
 After conducting our test the following is the resulting p-value:
 
-<p style="text-align: center;">p-value = 1.92*10<sup>-22</sup></p>
+<p style="text-align: center;">p-value = 1.92 $\times$ 10<sup>-22</sup></p>
 
 Thus, at a significance level of 0.05 we reject the null hypothesis and conclude that the missingness of the column `Pos` is dependent on the column `P%`. As such, we can say that in this case `Pos` is MAR  and not MCAR. 
 
@@ -115,7 +116,7 @@ Thus, at a significance level of 0.05 we reject the null hypothesis and conclude
 
 After analyzing the distributions of the Support and Top roles within each column in the previous EDA section, we can conclude that the feature that most quantifies a team's success on an individual basis is `KDA`. `KDA` is a measure of a champion's performance and is calculated as the following: 
 
-$$\frac{\text{Kills} + \text{Assists}}{\text{Deaths}}$$
+<p style="text-align: center;">$\frac{\text{Kills + Assists}}{\text{Deaths}}$</p>
 
 This measure quantifies the champion's own individual performance while other columns like `W%` measure overall team results. Due to this, `KDA` would be the best measure to come to a conclusion about our posed question.
 

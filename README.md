@@ -1,4 +1,3 @@
-# League of Legends Positions Analysis
 by Kathleen Nguyen and Cristina De La Torre
 
 ## Introduction
